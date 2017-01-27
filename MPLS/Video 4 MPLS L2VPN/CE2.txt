@@ -1,0 +1,25 @@
+#
+ sysname CE2
+#
+vlan 1
+#
+vlan 10
+#
+vlan 200
+#
+interface Vlan-interface1
+ ip address 172.16.1.2 255.255.255.0
+#
+interface Vlan-interface10
+ ip address 172.16.10.2 255.255.255.0
+#
+interface Vlan-interface200
+ ip address 172.16.20.2 255.255.255.0
+#
+interface GigabitEthernet0/0
+ port link-mode bridge
+ description link2PE2
+ port link-type trunk
+ port trunk permit vlan 1 10 200
+ combo enable copper
+#
